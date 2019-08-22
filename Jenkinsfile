@@ -21,7 +21,7 @@ pipeline {
     post {
         always {
             archiveArtifacts artifacts: 'target/classes/*', fingerprint: true
-            junit 'build/reports/**/*.xml'
+            //junit 'build/reports/**/*.xml'
             echo 'Ended with status'
         }
         success {
