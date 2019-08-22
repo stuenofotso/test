@@ -12,9 +12,15 @@ pipeline {
                 sh 'mvn compile'
             }
         }
+        stage('Test') {
+            steps {
+                sh 'mvn test'
+            }
+        }
     }
     post {
         always {
+            archiveArtifacts artifacts: 'target/classes/*', fingerprint: true
             junit 'build/reports/**/*.xml'
             echo 'Ended with status'
         }
